@@ -15,7 +15,9 @@
   "scripts": {
     "lint": "eslint ./src --max-warnings 0 --cache",
     "lint:fix": "npm run lint -- --fix",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
