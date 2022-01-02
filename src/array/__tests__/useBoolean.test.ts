@@ -38,4 +38,27 @@ describe('UseBoolean array', () => {
 
     expect(result.current[0]).toBe(false);
   });
+
+  describe('hooks optimizations', () => {
+    it('should keep actions reference equality after value change', () => {
+      // given
+      const { result } = renderHook(() => useBoolean(true));
+      const [, originalActionsReference] = result.current;
+      const { setFalse, setTrue, toggle } = originalActionsReference;
+
+      expect(result.current[1]).toBe(originalActionsReference);
+      expect(result.current[1].setFalse).toBe(setFalse);
+      expect(result.current[1].setTrue).toBe(setTrue);
+      expect(result.current[1].toggle).toBe(toggle);
+
+      // when
+      act(() => originalActionsReference.setFalse());
+
+      // then
+      expect(originalActionsReference).toBe(result.current[1]);
+      expect(setFalse).toBe(result.current[1].setFalse);
+      expect(setTrue).toBe(result.current[1].setTrue);
+      expect(toggle).toBe(result.current[1].toggle);
+    });
+  });
 });
