@@ -14,7 +14,8 @@
   "homepage": "https://github.com/yushanwebdev/react-hooks-library#readme",
   "scripts": {
     "lint": "eslint ./src --max-warnings 0 --cache",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.6.0",
