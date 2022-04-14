@@ -17,7 +17,7 @@
     "lint:fix": "npm run lint -- --fix",
     "tsc": "tsc",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watchAll"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
