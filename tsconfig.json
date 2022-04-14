@@ -10,7 +10,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "outDir": "./esm",
+    "declaration": true,
+    "declarationDir": "./types",
+    "importHelpers": true
   },
   "include": ["src"],
   "$schema": "https://json.schemastore.org/tsconfig"
