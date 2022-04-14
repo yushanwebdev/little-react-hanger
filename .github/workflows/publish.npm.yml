@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
       - uses: actions/cache@v2
         with:
           path: node_modules
@@ -33,8 +34,6 @@ jobs:
         run: npm run build
 
       - name: Publish to NPM
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
