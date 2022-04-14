@@ -1,0 +1,32 @@
+name: React Hook Library CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.14.2'
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install Dependencies
+        run: npm install
+      - name: Linting
+        run: npm run lint
+      - name: Testing
+        run: npm run test
+      - name: Building
+        run: npm run build
