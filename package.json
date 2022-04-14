@@ -1,5 +1,6 @@
 {
   "name": "react-hook-library",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "repository": {
@@ -13,23 +14,23 @@
   },
   "homepage": "https://github.com/yushanwebdev/react-hooks-library#readme",
   "source": "src/index.ts",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
     "lint": "eslint ./src --max-warnings 0 --cache",
     "lint:fix": "npm run lint -- --fix",
     "tsc": "tsc",
-    "test": "jest",
+    "test": "jest src",
     "test:watch": "npm test -- --watchAll",
     "build:types": "tsc",
-    "build:cjs": "IS_CJS=true babel src --out-dir dist/cjs --extensions \".js\",\".jsx\",\".ts\",\".tsx\" --source-maps",
-    "build:esm": "babel src --out-dir dist/esm --extensions \".js\",\".jsx\",\".ts\",\".tsx\" --source-maps",
-    "clean": "rimraf types cjs esm",
-    "build": "yarn clean && yarn build:types && yarn build:esm && yarn build:cjs"
+    "build:src": "babel src --out-dir dist --extensions \".js\",\".jsx\",\".ts\",\".tsx\" --source-maps",
+    "clean": "rimraf dist",
+    "build": "yarn clean && yarn build:types && yarn build:src"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
+    "@babel/preset-typescript": "^7.16.7",
     "@babel/runtime": "^7.17.9",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",

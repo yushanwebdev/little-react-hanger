@@ -1,19 +1,6 @@
-const isCjs = process.env.IS_CJS === 'true';
-process.env.NODE_ENV = 'production';
-
-module.exports = {
-  presets: [
-    [
-      require('babel-preset-react-app'),
-      {
-        useESModules: !isCjs,
-        typescript: true,
-        flow: false,
-        helpers: true,
-        absoluteRuntime: false,
-      },
-    ],
-  ],
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+  presets: [['@babel/preset-typescript']],
   ignore: [
     '**/src/**/*.d.ts',
     '**/src/setupTests.js',
