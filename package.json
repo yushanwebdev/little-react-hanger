@@ -1,7 +1,7 @@
 {
   "name": "react-hook-library",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1-1",
   "description": "",
   "repository": {
     "type": "git",
@@ -26,7 +26,10 @@
     "build:types": "tsc",
     "build:src": "babel src --out-dir dist --extensions \".js\",\".jsx\",\".ts\",\".tsx\" --source-maps",
     "clean": "rimraf dist",
-    "build": "yarn clean && yarn build:types && yarn build:src"
+    "build": "yarn clean && yarn build:types && yarn build:src",
+    "preversion": "npm run clean && npm run build && npm run test",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -38,6 +41,7 @@
     "@types/react": "^17.0.38",
     "@typescript-eslint/eslint-plugin": "4.6.0",
     "@typescript-eslint/parser": "4.6.0",
+    "auto-changelog": "^2.4.0",
     "babel-eslint": "10.1.0",
     "babel-preset-react-app": "^10.0.1",
     "eslint": "7.12.1",
@@ -58,5 +62,9 @@
   },
   "peerDependencies": {
     "react": "^16.8.0"
+  },
+  "auto-changelog": {
+    "commitLimit": false,
+    "template": "keepachangelog"
   }
 }
