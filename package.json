@@ -22,12 +22,15 @@
     "tsc": "tsc",
     "test": "jest",
     "test:watch": "npm test -- --watchAll",
-    "build:esm": "tsc",
-    "build:cjs": "tsc -p tsconfig-cjs.json",
+    "build:types": "tsc",
+    "build:cjs": "IS_CJS=true babel src --out-dir dist/cjs --extensions \".js\",\".jsx\",\".ts\",\".tsx\" --source-maps",
+    "build:esm": "babel src --out-dir dist/esm --extensions \".js\",\".jsx\",\".ts\",\".tsx\" --source-maps",
     "clean": "rimraf types cjs esm",
-    "build": "yarn clean && yarn build:esm && yarn build:cjs"
+    "build": "yarn clean && yarn build:types && yarn build:esm && yarn build:cjs"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/runtime": "^7.17.9",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@types/jest": "^27.4.0",
@@ -35,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "4.6.0",
     "@typescript-eslint/parser": "4.6.0",
     "babel-eslint": "10.1.0",
+    "babel-preset-react-app": "^10.0.1",
     "eslint": "7.12.1",
     "eslint-config-prettier": "6.15.0",
     "eslint-config-react-app": "6.0.0",
@@ -53,8 +57,5 @@
   },
   "peerDependencies": {
     "react": "^16.8.0"
-  },
-  "dependencies": {
-    "tslib": "^2.3.1"
   }
 }
