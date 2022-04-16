@@ -4,6 +4,7 @@ This is a smaller version of the [react-hanger](https://github.com/kitze/react-h
 
 - practice developing a strongly typed React Hook
 - learn about GitHub Actions
+- learn about generating a CHANGELOG
 - learn about publishing a package to the npm registry.
 
 ## Install
