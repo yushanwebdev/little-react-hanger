@@ -2,9 +2,9 @@
 
 This is a smaller version of the [react-hanger](https://github.com/kitze/react-hanger) created to,
 
-- Practice developing a strongly typed React Hook
-- Learn about GitHub Actions
-- Learn about publishing a package to the npm registry.
+- practice developing a strongly typed React Hook
+- learn about GitHub Actions
+- learn about publishing a package to the npm registry.
 
 ## Install
 
