@@ -28,3 +28,4 @@ yarn-error.log*
 /es6/
 /lib/
 tsconfig-require.tsbuildinfo
+.eslintcache
